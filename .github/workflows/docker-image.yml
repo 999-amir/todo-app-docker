@@ -14,5 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Setup Docker-Compose
-      run: docker-compose up --build
+    - uses: adambirds/docker-compose-action@v1.3.0
+      with:
+        compose-file: "docker-compose.yml"
+        test-container: "container1"
+        test-command: "pytest ."
